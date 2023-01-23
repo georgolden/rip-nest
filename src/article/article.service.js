@@ -22,7 +22,7 @@ export const createArticle = (deps, payload) => {
 };
 
 /** @param {Deps} deps */
-export const createArticleService = (deps) => ({
+export const initArticleService = (deps) => ({
   /** @type {CreateAricle} */
   createArticle: partial(createArticle, deps),
 });

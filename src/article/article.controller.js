@@ -8,7 +8,7 @@ import { createArticleDto } from './dto/article.dto.js';
  * @param {ArticleService} articleService
  * @returns {FastifyRoute[]}
 */
-export const createArticleController = (articleService) => {
+export const initArticleController = (articleService) => {
   const urlPrefix = '/article';
 
   /** @type {FastifyRoute} */

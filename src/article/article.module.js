@@ -1,11 +1,11 @@
-import { createPrismaService } from '../prisma/prisma.service.js';
-import { createArticleService } from './article.service.js';
-import { createArticleController } from './article.controller.js';
+import { initPrismaService } from '../prisma/prisma.service.js';
+import { initArticleService } from './article.service.js';
+import { initArticleController } from './article.controller.js';
 
-export const createArticleModule = () => {
-  const prisma = createPrismaService();
-  const articleService = createArticleService({ prisma });
-  const articleRoutes = createArticleController(articleService);
+export const initArticleModule = () => {
+  const prisma = initPrismaService();
+  const articleService = initArticleService({ prisma });
+  const articleRoutes = initArticleController(articleService);
 
   return {
     services: [prisma, articleService],
