@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "articles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Article"
+          }
+        },
+        "blog": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Blog"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "writes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BlogWriter"
+          }
+        }
+      }
+    },
+    "Blog": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "articles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Article"
+          }
+        },
+        "owner": {
+          "$ref": "#/definitions/User"
+        },
+        "writers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BlogWriter"
+          }
+        }
+      }
+    },
+    "BlogWriter": {
+      "type": "object",
+      "properties": {
+        "writer": {
+          "$ref": "#/definitions/User"
+        },
+        "blog": {
+          "$ref": "#/definitions/Blog"
+        }
+      }
+    },
+    "Article": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "blog": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Blog"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "author": {
+          "$ref": "#/definitions/User"
+        },
+        "title": {
+          "type": "string"
+        },
+        "abstract": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "content": {
+          "type": [
+            "number",
+            "string",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "user": {
+      "$ref": "#/definitions/User"
+    },
+    "blog": {
+      "$ref": "#/definitions/Blog"
+    },
+    "blogWriter": {
+      "$ref": "#/definitions/BlogWriter"
+    },
+    "article": {
+      "$ref": "#/definitions/Article"
+    }
+  }
+}
