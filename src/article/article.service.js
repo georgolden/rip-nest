@@ -17,7 +17,6 @@ import { partial } from '@oldbros/shiftjs';
 */
 export const createArticle = (deps, payload) => {
   const { prisma } = deps;
-  // @ts-ignore
   return prisma.article.create({ data: payload });
 };
 

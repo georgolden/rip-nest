@@ -4,10 +4,10 @@ export const articleDto = {
     id: {
       type: 'string',
     },
-    blog: {
+    blogId: {
       type: ['string', 'null'],
     },
-    author: {
+    authorId: {
       type: 'string',
     },
     title: {
@@ -35,7 +35,7 @@ export const createArticleDto = {
 
 /**
  * @typedef {object} CreateArticleDto
- * @property {string} author
+ * @property {string} authorId
  * @property {string} title
  * @property {string} abstract
  * @property {string} keywords
@@ -43,8 +43,8 @@ export const createArticleDto = {
  *
  * @typedef {object} ArticleDto
  * @property {?string} id
- * @property {?string} blog
- * @property {string} author
+ * @property {?string} blogId
+ * @property {string} authorId
  * @property {string} title
  * @property {string} abstract
  * @property {string} keywords
