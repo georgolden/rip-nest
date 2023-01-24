@@ -30,3 +30,8 @@ export const initArticleService = (deps) => ({
  * @typedef {object} ArticleService
  * @property {CreateAricle} createArticle
  */
+
+export const metadata = {
+  token: 'article',
+  dependencies: ['prisma'],
+};

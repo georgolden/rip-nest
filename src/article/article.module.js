@@ -1,5 +1,5 @@
 import { initPrismaService } from '../prisma/prisma.service.js';
-import { initArticleService } from './article.service.js';
+import { initArticleService, metadata } from './article.service.js';
 import { initArticleController } from './article.controller.js';
 
 export const initArticleModule = () => {
@@ -11,4 +11,25 @@ export const initArticleModule = () => {
     services: [prisma, articleService],
     routes: [articleRoutes],
   };
+};
+
+export const articleModule = {
+  services: [
+    {
+      token: metadata.token,
+      dependencies: metadata.dependencies,
+      constructor: initArticleService,
+    },
+    {
+      token: 'prisma',
+      dependencies: null,
+      constructor: initPrismaService,
+    },
+  ],
+  providers: [
+    {
+      service: 'artice',
+      constructor: initArticleController,
+    },
+  ],
 };
